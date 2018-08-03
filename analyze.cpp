@@ -84,12 +84,11 @@ void DetectionUnits::FixData(std::vector<float> &s, std::vector<float> &z)
 	s.insert(s.begin(), pad1.begin(), pad1.end());
 	s.insert(s.end(), pad1.begin(), pad1.end());
 
-	std::vector<float> pad_p(interp-1);
-	z.insert(z.begin(), pad_p.begin(), pad_p.end());
-
-	std::vector<float> pad2(cutlen[gm]);
+	std::vector<float> pad2(cutlen[gm]+interp-1);
 	z.insert(z.begin(), pad2.begin(), pad2.end());
-	z.insert(z.end(), pad2.begin(), pad2.end());
+
+	std::vector<float> pad3(cutlen[gm]);
+	z.insert(z.end(), pad3.begin(), pad3.end());
 }
 
 //解析を実施する
